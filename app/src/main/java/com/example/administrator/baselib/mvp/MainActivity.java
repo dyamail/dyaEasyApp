@@ -1,21 +1,22 @@
 package com.example.administrator.baselib.mvp;
 
-import android.app.ProgressDialog;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.administrator.baselib.R;
 import com.example.administrator.baselib.base.MvpActivity;
 import com.example.administrator.baselib.retrofit.DiscountBean;
 import com.gyf.barlibrary.ImmersionBar;
 import com.vlonjatg.progressactivity.ProgressLinearLayout;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,12 +35,16 @@ public class MainActivity extends MvpActivity<MainPresenterImpl> implements Main
     @Bind(R.id.toolbar_me)
     Toolbar toolbar;
 
-    private ProgressDialog pd;
+    @Bind(R.id.main_text)
+    TextView mainText;
+    @Bind(R.id.start_intent)
+    Button startIntent;
 
 
     @Override
     protected void beforeInit() {
         ImmersionBar.with(this).titleBar(toolbar).init();
+        EventBus.getDefault().register(this);
     }
 
 
@@ -70,17 +75,46 @@ public class MainActivity extends MvpActivity<MainPresenterImpl> implements Main
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        if (event.code == 0) {
+            mainText.setText("发过来的0");
+        } else if (event.code == 5) {
+            mainText.setText("发过来的5");
+        } else {
+            mainText.setText("发过来的其他");
+        }
+    }
 
     @Override
     public void finishRefresh() {
 
-
-    }
-
-    @OnClick(R.id.btn_login_login)
-    public void onViewClicked() {
-        mPresenter.userLogin(this, "", "");
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick({R.id.btn_login_login, R.id.start_intent})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login_login:
+                mPresenter.userLogin(MainActivity.this,"","");
+                break;
+            case R.id.start_intent:
+                startActivity(new Intent(this, EventBusAct.class));
+                break;
+        }
+    }
 }

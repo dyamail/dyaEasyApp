@@ -9,7 +9,7 @@ import com.example.administrator.baselib.client.ResultInfo;
  * NewYYDB
  * 折扣商城
  */
-public class DiscountBean extends ResultInfo {
+public class DiscountBean extends Response {
     /**
      * code ;// 200
      * data ;// [{discount;//0.8,market_price;//1000,p_id;//95,p_main_img;//www.baidu.com,p_name;//中石化加油卡面值1000元,payment_num;//1,single_price;//800},{discount;//0.9,market_price;//1000,p_id;//96,p_main_img;//www.hao123.com,p_name;//中石化加油卡面值1000元,payment_num;//1,single_price;//900}]

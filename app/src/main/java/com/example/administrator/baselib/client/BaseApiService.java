@@ -1,6 +1,8 @@
 package com.example.administrator.baselib.client;
 
+import com.example.administrator.baselib.retrofit.DisAll;
 import com.example.administrator.baselib.retrofit.DiscountBean;
+import com.example.administrator.baselib.retrofit.Response;
 
 
 import io.reactivex.Observable;
@@ -18,7 +20,7 @@ public interface BaseApiService<T> {
     Observable<DiscountBean> userLogin(@Query("phone") String phone, @Query("password") String password);
 
     @POST("showHotProducts.do")
-    Observable<ResultInfo> userLogins();
+    Observable<DisAll> userLogins(@Query("pageRow") int pageRow, @Query("nowPage") int nowPage);
 
 
 }

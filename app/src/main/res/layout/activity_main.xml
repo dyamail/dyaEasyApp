@@ -7,23 +7,19 @@
     android:orientation="vertical">
 
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_me"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_me"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
             android:layout_width="match_parent"
-            android:background="@color/colorPrimaryDark"
-            android:layout_height="?attr/actionBarSize"
-           >
+            android:layout_height="wrap_content"
+            android:text="1312213132"
+            android:textColor="#FFFFFF" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1312213132"
-                android:textColor="#FFFFFF" />
-
-        </android.support.v7.widget.Toolbar>
-
-
-
+    </android.support.v7.widget.Toolbar>
 
 
     <com.vlonjatg.progressactivity.ProgressLinearLayout
@@ -86,5 +82,26 @@
             android:textColor="#ffffff"
             android:textSize="16sp" />
 
+        <Button
+            android:id="@+id/start_intent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="跳转"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="等待接收数据" />
+
     </com.vlonjatg.progressactivity.ProgressLinearLayout>
+
+
 </LinearLayout>
