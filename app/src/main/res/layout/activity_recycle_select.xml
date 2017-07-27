@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.baselib.ui.RecycleSelectActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/btn_compile"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimaryDark"
+            android:button="@null"
+            android:gravity="center"
+            android:text="编辑" />
+
+        <CheckBox
+            android:id="@+id/btn_all"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="7dp"
+            android:background="@color/colorPrimaryDark"
+            android:button="@null"
+            android:gravity="center"
+            android:text="编辑" />
+
+        <Button
+            android:id="@+id/action0"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="7dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="删除" />
+
+        <Button
+            android:id="@+id/action1"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="7dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="增加" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

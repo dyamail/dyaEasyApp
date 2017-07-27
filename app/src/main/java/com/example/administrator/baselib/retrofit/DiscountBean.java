@@ -2,6 +2,8 @@ package com.example.administrator.baselib.retrofit;
 
 import com.example.administrator.baselib.client.ResultInfo;
 
+import java.util.List;
+
 /**
  * Created by yang
  * jjs1
@@ -9,134 +11,133 @@ import com.example.administrator.baselib.client.ResultInfo;
  * NewYYDB
  * 折扣商城
  */
-public class DiscountBean extends Response {
+public class DiscountBean{
+
+
     /**
-     * code ;// 200
-     * data ;// [{discount;//0.8,market_price;//1000,p_id;//95,p_main_img;//www.baidu.com,p_name;//中石化加油卡面值1000元,payment_num;//1,single_price;//800},{discount;//0.9,market_price;//1000,p_id;//96,p_main_img;//www.hao123.com,p_name;//中石化加油卡面值1000元,payment_num;//1,single_price;//900}]
-     * msg ;// 请求成功
+     * data : {"treasures":[{"progress":0.75,"taskId":258,"pMainImg":"1","pName":"测试1"},{"progress":0,"taskId":242,"pMainImg":"7","pName":"测试6"},{"progress":0,"taskId":263,"pMainImg":"4","pName":"测试4"},{"progress":0,"taskId":260,"pMainImg":"9","pName":"测试9"},{"progress":0,"taskId":257,"pMainImg":"10","pName":"测试10"},{"progress":0,"taskId":252,"pMainImg":"8","pName":"测试8"},{"progress":0,"taskId":249,"pMainImg":"3","pName":"测试3"},{"progress":0,"taskId":264,"pMainImg":"596ed56a32ea5.png","pName":"夺宝1修改"},{"progress":0,"taskId":262,"pMainImg":"2","pName":"测试2"},{"progress":0,"taskId":256,"pMainImg":"5","pName":"测试5"}],"ad":[{"status":-1,"adImg":"444","tId":44,"url":"44"},{"adImg":"/Uploads/ads/5970680fe3bb1.jpg","status":-1,"url":"http://www.baidu.com"},{"status":1,"tId":97,"adImg":"59719b03dccf3.jpg"}]}
      */
 
+//    private DataBean data;
 //
-        /**
-         * discount ;// 0.8
-         * market_price ;// 1000
-         * p_id ;// 95
-         * p_main_img ;// www.baidu.com
-         * p_name ;// 中石化加油卡面值1000元
-         * payment_num ;// 1
-         * single_price ;// 800
-         */
+//    public DataBean getData() {
+//        return data;
+//    }
+//
+//    public void setData(DataBean data) {
+//        this.data = data;
+//    }
+//
+//    public static class DataBean {
+        private List<TreasuresBean> treasures;
+        private List<AdBean> ad;
 
-        private String market_price;//1000,
-        private String delivery_fee;//12,
-        private String discount;//6,
-        private String p_main_img;//www.baidu.com,
-        private String p_id;//95,
-        private String preferral;//www.baidu.com,
-        private String p_name;//中石化加油卡面值1000元,
-        private String p_ad_img;//,
-        private String monthly_sales;//0,
-        private String payment_num;//0,
-        private String discount_price;//600
-
-        public String getMarket_price() {
-            return market_price;
+        public List<TreasuresBean> getTreasures() {
+            return treasures;
         }
 
-        public void setMarket_price(String market_price) {
-            this.market_price = market_price;
+        public void setTreasures(List<TreasuresBean> treasures) {
+            this.treasures = treasures;
         }
 
-        public String getDelivery_fee() {
-            return delivery_fee;
+        public List<AdBean> getAd() {
+            return ad;
         }
 
-        public void setDelivery_fee(String delivery_fee) {
-            this.delivery_fee = delivery_fee;
+        public void setAd(List<AdBean> ad) {
+            this.ad = ad;
         }
 
-        public String getDiscount() {
-            return discount;
+        public static class TreasuresBean {
+            /**
+             * progress : 0.75
+             * taskId : 258
+             * pMainImg : 1
+             * pName : 测试1
+             */
+
+            private double progress;
+            private int taskId;
+            private String pMainImg;
+            private String pName;
+
+            public double getProgress() {
+                return progress;
+            }
+
+            public void setProgress(double progress) {
+                this.progress = progress;
+            }
+
+            public int getTaskId() {
+                return taskId;
+            }
+
+            public void setTaskId(int taskId) {
+                this.taskId = taskId;
+            }
+
+            public String getPMainImg() {
+                return pMainImg;
+            }
+
+            public void setPMainImg(String pMainImg) {
+                this.pMainImg = pMainImg;
+            }
+
+            public String getPName() {
+                return pName;
+            }
+
+            public void setPName(String pName) {
+                this.pName = pName;
+            }
         }
 
-        public void setDiscount(String discount) {
-            this.discount = discount;
+        public static class AdBean {
+            /**
+             * status : -1
+             * adImg : 444
+             * tId : 44
+             * url : 44
+             */
+
+            private int status;
+            private String adImg;
+            private int tId;
+            private String url;
+
+            public int getStatus() {
+                return status;
+            }
+
+            public void setStatus(int status) {
+                this.status = status;
+            }
+
+            public String getAdImg() {
+                return adImg;
+            }
+
+            public void setAdImg(String adImg) {
+                this.adImg = adImg;
+            }
+
+            public int getTId() {
+                return tId;
+            }
+
+            public void setTId(int tId) {
+                this.tId = tId;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
         }
-
-        public String getP_main_img() {
-            return p_main_img;
-        }
-
-        public void setP_main_img(String p_main_img) {
-            this.p_main_img = p_main_img;
-        }
-
-        public String getP_id() {
-            return p_id;
-        }
-
-        public void setP_id(String p_id) {
-            this.p_id = p_id;
-        }
-
-        public String getPreferral() {
-            return preferral;
-        }
-
-        public void setPreferral(String preferral) {
-            this.preferral = preferral;
-        }
-
-        public String getP_name() {
-            return p_name;
-        }
-
-        public void setP_name(String p_name) {
-            this.p_name = p_name;
-        }
-
-        public String getP_ad_img() {
-            return p_ad_img;
-        }
-
-        public void setP_ad_img(String p_ad_img) {
-            this.p_ad_img = p_ad_img;
-        }
-
-        public String getMonthly_sales() {
-            return monthly_sales;
-        }
-
-        public void setMonthly_sales(String monthly_sales) {
-            this.monthly_sales = monthly_sales;
-        }
-
-        public String getPayment_num() {
-            return payment_num;
-        }
-
-        public void setPayment_num(String payment_num) {
-            this.payment_num = payment_num;
-        }
-
-        public String getDiscount_price() {
-            return discount_price;
-        }
-
-        public void setDiscount_price(String discount_price) {
-            this.discount_price = discount_price;
-
-    }
-
-//    private String code;
-//    private String msg;
-//    private String token;
-//    private String discount;//折扣率
-//    private String market_price;//市场价格
-//    private String P_name;//折扣商品名称
-//    private String p_main_img;//图片地址
-//    private String payment_num;//已付款人数
-//    private String single_price;//折后价格
-
-
+//    }
 }

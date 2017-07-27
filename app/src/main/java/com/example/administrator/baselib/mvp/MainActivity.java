@@ -11,6 +11,10 @@ import android.widget.TextView;
 import com.example.administrator.baselib.R;
 import com.example.administrator.baselib.base.MvpActivity;
 import com.example.administrator.baselib.retrofit.DiscountBean;
+import com.example.administrator.baselib.ui.CustomActivity;
+import com.example.administrator.baselib.ui.ObjectAnimatorActivity;
+import com.example.administrator.baselib.ui.RecycleSelectActivity;
+import com.example.administrator.baselib.ui.retrofitUpload.RetrofitUploadActivity;
 import com.gyf.barlibrary.ImmersionBar;
 import com.vlonjatg.progressactivity.ProgressLinearLayout;
 
@@ -34,11 +38,16 @@ public class MainActivity extends MvpActivity<MainPresenterImpl> implements Main
     ProgressLinearLayout progressBarLoading;
     @Bind(R.id.toolbar_me)
     Toolbar toolbar;
-
     @Bind(R.id.main_text)
     TextView mainText;
     @Bind(R.id.start_intent)
     Button startIntent;
+    @Bind(R.id.start_select)
+    Button startSelect;
+    @Bind(R.id.start_upload)
+    Button startUpload;
+    @Bind(R.id.start_custom)
+    Button startCustom;
 
 
     @Override
@@ -86,11 +95,6 @@ public class MainActivity extends MvpActivity<MainPresenterImpl> implements Main
         }
     }
 
-    @Override
-    public void finishRefresh() {
-
-    }
-
 
     @Override
     protected void onDestroy() {
@@ -106,15 +110,31 @@ public class MainActivity extends MvpActivity<MainPresenterImpl> implements Main
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_login_login, R.id.start_intent})
+    @OnClick({R.id.btn_login_login, R.id.start_intent, R.id.start_select, R.id.start_upload, R.id.start_custom, R.id.start_anim})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login_login:
-                mPresenter.userLogin(MainActivity.this,"","");
+                mPresenter.userLogin(MainActivity.this, "", "");
                 break;
             case R.id.start_intent:
                 startActivity(new Intent(this, EventBusAct.class));
                 break;
+            case R.id.start_select:
+                startActivity(new Intent(this, RecycleSelectActivity.class));
+                break;
+            case R.id.start_upload:
+                startActivity(new Intent(this, RetrofitUploadActivity.class));
+                break;
+            case R.id.start_custom:
+                startActivity(new Intent(this, CustomActivity.class));
+                break;
+            case R.id.start_anim:
+                startActivity(new Intent(this, ObjectAnimatorActivity.class));
+                break;
         }
+    }
+
+    @OnClick(R.id.start_custom)
+    public void onViewClicked() {
     }
 }

@@ -31,6 +31,8 @@ dependencies {
     //引入rxjava适配器，方便rxjava与retrofit的结合
     //引入json转换器，方便将返回的数据转换为json格式
     //引入rxandroid
+
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
@@ -46,5 +48,6 @@ dependencies {
     compile 'com.gyf.barlibrary:barlibrary:2.2.5'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
     testCompile 'junit:junit:4.12'
 }

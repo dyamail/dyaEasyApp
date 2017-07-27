@@ -16,6 +16,7 @@ public class ApiException {
     private static final int UNAUTHORIZED = 401;
     private static final int FORBIDDEN = 403;
     private static final int NOT_FOUND = 404;
+    private static final int NOT_FOUND_SERCICE = 405;
     private static final int REQUEST_TIMEOUT = 408;
     private static final int INTERNAL_SERVER_ERROR = 500;
     private static final int BAD_GATEWAY = 502;
@@ -31,6 +32,7 @@ public class ApiException {
                 case UNAUTHORIZED:
                 case FORBIDDEN:
                 case NOT_FOUND:
+                case NOT_FOUND_SERCICE:
                 case REQUEST_TIMEOUT:
                 case GATEWAY_TIMEOUT:
                 case INTERNAL_SERVER_ERROR:
